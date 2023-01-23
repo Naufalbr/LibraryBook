@@ -24,7 +24,12 @@ public class AddActivity extends AppCompatActivity {
         pages_input = findViewById(R.id.pages_input);
         add_button = findViewById(R.id.add_button);
         add_button.setOnClickListener(new View.OnClickListener() {
-            
+            @Override
+            public void onClick(View view) {
+                MyDatabaseHelper myDB = new MyDatabaseHelper(AddActivity.this);
+                myDB.addBook(title_input.getText().toString().trim(),
+                        author_input.getText().toString().trim(),
+                        Integer.valueOf(pages_input.getText().toString().trim()));
             }
         });
     }
